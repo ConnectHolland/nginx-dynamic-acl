@@ -88,6 +88,14 @@ server {
 ```
 
 
+### Using nginx-dynamic-acl without basic authentication
+This library automatically determines the username based on the `ngx.var.remote_user` value that is defined when using basic auth. If you are using another authentication method and just want to
+use nginx-dynamic-acl for authorization, you can provide a second parameter to the `.authorize(...)` call as follows:
+
+```
+require("dynamic_acl").authorize("<location to your authorizations JSON file>", "<username from somewhere else>")
+```
+
 ## Credits and acknowledgements
 * Created by [Niels Nijens](http://github.com/niels-nijens).
 * Inspired by [Playing HTTP Tricks with Nginx](https://www.elastic.co/blog/playing-http-tricks-nginx) by [Elastic](https://github.com/elastic).

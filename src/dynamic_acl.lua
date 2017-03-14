@@ -11,7 +11,7 @@ function dynamicACL.authorize(authorizationsFile, username)
     if username == nil then
         username = ngx.var.remote_user
     end
-    ngx.log(ngx.DEBUG, role)
+    ngx.log(ngx.DEBUG, username)
 
     local authorizations = dynamicACL.loadAuthorizations(authorizationsFile)
 

@@ -7,8 +7,10 @@ local dynamicACL = {
 }
 
 -- Authorizes authenticated users for specific configured paths.
-function dynamicACL.authorize(authorizationsFile)
-    local username = ngx.var.remote_user
+function dynamicACL.authorize(authorizationsFile, username)
+    if username == nil then
+        username = ngx.var.remote_user
+    end
     ngx.log(ngx.DEBUG, role)
 
     local authorizations = dynamicACL.loadAuthorizations(authorizationsFile)
